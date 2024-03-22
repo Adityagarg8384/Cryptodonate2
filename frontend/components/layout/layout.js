@@ -1,0 +1,51 @@
+'use-client'
+import Header from './header'
+import themes from './themes'
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import { useState, createContext } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+const App= createContext();
+
+export const Layout = ({ children }) => {
+    const [theme, setTheme] = useState('light');
+
+    const changetheme = () => {
+        setTheme(theme == "light" ? "dark" : "light");
+    }
+
+    return (
+        <App.Provider value={changetheme}>
+        <ThemeProvider theme={themes[theme]}>
+          <ToastContainer/>
+        <LayoutWrapper >
+          <GlobalStyle />
+          <Header />
+          {children}
+        </LayoutWrapper>
+      </ThemeProvider>
+      </App.Provider>
+    )
+}
+
+const GlobalStyle = createGlobalStyle`
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+`;
+
+const LayoutWrapper = styled.div`
+  min-height: 100vh;
+  background-color: ${(props) => props.theme.navColor};
+  background-image: ${(props) => props.theme.navImage};
+  color: ${(props) => props.theme.color};
+`;
+
+
+export default Layout;
+
+export {App};
