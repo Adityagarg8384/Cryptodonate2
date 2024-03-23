@@ -26,7 +26,7 @@ const First = () => {
 
     
     const handlesend = () => {
-        fetch("http://localhost:3001/send-otp", {
+        fetch("https://crypto-donate-bqhe.vercel.app/send-otp", {
             method: 'POST',
             body: JSON.stringify({
                 phoneNumber,
