@@ -4,6 +4,7 @@ import {ethers} from 'ethers';
 import CampaignFactory from '../artifacts/Contracts/Campaigns.sol/CampaignFactory.json';
 import Campaign from '../artifacts/Contracts/Campaigns.sol/Campaign.json';
 import { useEffect, useState } from "react";
+require("dotenv").config();
 
 
 export default function Detail({Data, DonationsData}) {
