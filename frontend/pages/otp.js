@@ -11,7 +11,7 @@ const otp = () => {
     const [userOtp, setUserOtp]=useState('');
     const phoneNumber="+918384030040"
     const verifysend=()=>{
-        fetch("http://localhost:3001/verify-otp", {
+        fetch("https://crypto-donate-bqhe.vercel.app/verify-otp", {
             method: 'POST',
             body: JSON.stringify({
                 phoneNumber,
