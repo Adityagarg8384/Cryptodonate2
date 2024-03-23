@@ -5,6 +5,7 @@ import { ethers } from 'ethers';
 import CampaignFactory from '../artifacts/Contracts/Campaigns.sol/CampaignFactory.json';
 import { useState } from 'react';
 import Link from 'next/link'
+require("dotenv").config();
 
 export default function Index({AllData, HealthData, EducationData,AnimalData}) {
   const [filter, setFilter] = useState(AllData);
